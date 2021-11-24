@@ -14,10 +14,9 @@ import java.util.Scanner;
 public class ClientApplication {
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        String keepGoing = "y";
+        // String keepGoing = "y";
         Scanner choose = new Scanner(System.in);
 
-        while (keepGoing.equals("y") || keepGoing.equals("Y")) {
             System.out.println("Memberships or Tournaments?");
             String userinput1 = choose.nextLine();
             if (userinput1.toUpperCase().equals("M")) {
@@ -26,16 +25,13 @@ public class ClientApplication {
                             userinput1 = choose.nextLine();
                             if (userinput1.toUpperCase().equals("A")) {
                                 membershipPostRequest();
-                                System.out.println("Do you want to keep going? (y/n)");
-                                keepGoing = choose.nextLine();
+
                             } else if (userinput1.toUpperCase().equals("E")) {
                                 membershipPutRequest();
-                                System.out.println("Do you want to keep going? (y/n)");
-                                keepGoing = choose.nextLine();
+
                             }  else if (userinput1.toUpperCase().equals("D")) {
                                 membershipDeleteRequest();
-                                System.out.println("Do you want to keep going? (y/n)");
-                                keepGoing = choose.nextLine();
+
                             } else {
                                 System.out.println("Please enter either \"(A)dd\", \"(E)dit\" \"(D)elete\"");
                             }
@@ -45,23 +41,20 @@ public class ClientApplication {
                 userinput1 = choose.nextLine();
                 if (userinput1.toUpperCase().equals("A")) {
                     tournamentPostRequest();
-                    System.out.println("Do you want to keep going? (y/n)");
-                    keepGoing = choose.nextLine();
+
                 } else if (userinput1.toUpperCase().equals("E")) {
                     tournamentPutRequest();
-                    System.out.println("Do you want to keep going? (y/n)");
-                    keepGoing = choose.nextLine();
+
                 }  else if (userinput1.toUpperCase().equals("D")) {
                     tournamentDeleteRequest();
-                    System.out.println("Do you want to keep going? (y/n)");
-                    keepGoing = choose.nextLine();
+
                 } else {
                     System.out.println("Please enter either \"(A)dd\", \"(E)dit\" \"(D)elete\"");
                 }
             } else {
                 System.out.println("Please enter either \"M\" or \"T\"");
             }
-        } 
+
     }
 
     public static void membershipGetRequest() throws IOException, InterruptedException {
@@ -152,6 +145,12 @@ public class ClientApplication {
         }
 
     public static void membershipPutRequest() throws IOException, InterruptedException{
+        String id;
+        Scanner idInput = new Scanner(System.in);
+        System.out.println("Enter the id you want to edit: ");
+        id = idInput.nextLine();
+        idInput.close();
+
         Map<Object, Object> data = new HashMap<>();
         data.put("firstName", "Jane");
         data.put("lastName", "Doe");
@@ -170,7 +169,7 @@ public class ClientApplication {
         ObjectMapper dataMapper = new ObjectMapper();
         String stringifydataMapper = dataMapper.writeValueAsString(data);
 
-        HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:8080/api/membership/2"))
+        HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:8080/api/membership/" + id))
                 .version(HttpClient.Version.HTTP_2)
                 .header("Content-Type", "application/json")
                 .PUT(HttpRequest.BodyPublishers.ofString(stringifydataMapper))
@@ -183,6 +182,12 @@ public class ClientApplication {
     }
 
     public static void tournamentPutRequest() throws IOException, InterruptedException{
+        String id;
+        Scanner idInput = new Scanner(System.in);
+        System.out.println("Enter the id you want to edit: ");
+        id = idInput.nextLine();
+        idInput.close();
+
         Map<Object, Object> data = new HashMap<>();
         data.put("startDate", "Jan");
         data.put("endDate", "Dec");
@@ -194,7 +199,7 @@ public class ClientApplication {
         ObjectMapper dataMapper = new ObjectMapper();
         String stringifydataMapper = dataMapper.writeValueAsString(data);
 
-        HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:8080/api/membership/2"))
+        HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:8080/api/membership/" + id))
                 .version(HttpClient.Version.HTTP_2)
                 .header("Content-Type", "application/json")
                 .PUT(HttpRequest.BodyPublishers.ofString(stringifydataMapper))
@@ -207,7 +212,13 @@ public class ClientApplication {
     }
 
     public static void membershipDeleteRequest() throws IOException, InterruptedException{
-        HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:8080/api/Membership/3"))
+        String id;
+        Scanner idInput = new Scanner(System.in);
+        System.out.println("Enter the id you want to edit: ");
+        id = idInput.nextLine();
+        idInput.close();
+
+        HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:8080/api/Membership/" + id))
                 .version(HttpClient.Version.HTTP_2)
                 .header("Content-Type", "application/json")
                 .DELETE()
@@ -216,11 +227,17 @@ public class ClientApplication {
         HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         String responseBody = response.body();
-        System.out.println("Deleted: " + responseBody);
+        System.out.println("Deleted " + responseBody);
     }
 
     public static void tournamentDeleteRequest() throws IOException, InterruptedException{
-        HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:8080/api/tournament/2"))
+        String id;
+        Scanner idInput = new Scanner(System.in);
+        System.out.println("Enter the id you want to edit: ");
+        id = idInput.nextLine();
+        idInput.close();
+
+        HttpRequest request = HttpRequest.newBuilder(URI.create("http://localhost:8080/api/tournament/" + id))
                 .version(HttpClient.Version.HTTP_2)
                 .header("Content-Type", "application/json")
                 .DELETE()
@@ -229,7 +246,7 @@ public class ClientApplication {
         HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         String responseBody = response.body();
-        System.out.println("Deleted: " + responseBody);
+        System.out.println("Deleted " + responseBody);
     }
 
 }
