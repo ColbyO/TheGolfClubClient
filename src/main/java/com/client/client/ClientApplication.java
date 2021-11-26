@@ -24,10 +24,62 @@ public class ClientApplication {
                             System.out.println("Do you want to Add/Edit/Delete Memberships? (A/E/D)");
                             userinput1 = choose.nextLine();
                             if (userinput1.toUpperCase().equals("A")) {
-                                membershipPostRequest();
+                                System.out.println("Enter a first name: ");
+                                String firstName = choose.nextLine();
+                                System.out.println("Enter a last name: ");
+                                String lastName = choose.nextLine();
+                                System.out.println("Enter a address: ");
+                                String address = choose.nextLine();
+                                System.out.println("Enter a email: ");
+                                String email = choose.nextLine();
+                                System.out.println("Enter a phone: ");
+                                int phone = choose.nextInt();
+                                System.out.println("Enter a duration: ");
+                                String duration = choose.nextLine();
+                                System.out.println("Enter a Membership Type: ");
+                                String membershipType = choose.nextLine();
+                                System.out.println("Enter a Current Tournament: ");
+                                String currentTournament = choose.nextLine();
+                                System.out.println("Enter a Past Tournament: ");
+                                String pastTournament = choose.nextLine();
+                                System.out.println("Enter a Upcoming Tournament: ");
+                                String upcomingTournament = choose.nextLine();
+                                System.out.println("Enter a Final Standings: ");
+                                String finalStandings = choose.nextLine();
+                                System.out.println("Enter a Location: ");
+                                String location = choose.nextLine();
+                                System.out.println("Enter a Participation Members: ");
+                                String participationMembers = choose.nextLine();
+                                membershipPostRequest(firstName, lastName, address, email, phone, duration, membershipType, currentTournament, pastTournament, upcomingTournament, finalStandings, location, participationMembers);
 
                             } else if (userinput1.toUpperCase().equals("E")) {
-                                membershipPutRequest();
+                                System.out.println("Enter a first name: ");
+                                String firstName = choose.nextLine();
+                                System.out.println("Enter a last name: ");
+                                String lastName = choose.nextLine();
+                                System.out.println("Enter a address: ");
+                                String address = choose.nextLine();
+                                System.out.println("Enter a email: ");
+                                String email = choose.nextLine();
+                                System.out.println("Enter a phone: ");
+                                int phone = choose.nextInt();
+                                System.out.println("Enter a duration: ");
+                                String duration = choose.nextLine();
+                                System.out.println("Enter a Membership Type: ");
+                                String membershipType = choose.nextLine();
+                                System.out.println("Enter a Current Tournament: ");
+                                String currentTournament = choose.nextLine();
+                                System.out.println("Enter a Past Tournament: ");
+                                String pastTournament = choose.nextLine();
+                                System.out.println("Enter a Upcoming Tournament: ");
+                                String upcomingTournament = choose.nextLine();
+                                System.out.println("Enter a Final Standings: ");
+                                String finalStandings = choose.nextLine();
+                                System.out.println("Enter a Location: ");
+                                String location = choose.nextLine();
+                                System.out.println("Enter a Participation Members: ");
+                                String participationMembers = choose.nextLine();
+                                membershipPutRequest(firstName, lastName, address, email, phone, duration, membershipType, currentTournament, pastTournament, upcomingTournament, finalStandings, location, participationMembers);
 
                             }  else if (userinput1.toUpperCase().equals("D")) {
                                 membershipDeleteRequest();
@@ -40,10 +92,34 @@ public class ClientApplication {
                 System.out.println("Do you want to Add/Edit/Delete Memberships? (A/E/D)");
                 userinput1 = choose.nextLine();
                 if (userinput1.toUpperCase().equals("A")) {
-                    tournamentPostRequest();
+                    System.out.println("Enter a Start Date: ");
+                    String startDate = choose.nextLine();
+                    System.out.println("Enter a End Date: ");
+                    String endDate = choose.nextLine();
+                    System.out.println("Enter a fee: ");
+                    double fee = choose.nextDouble();
+                    System.out.println("Enter a prize pool: ");
+                    double prize = choose.nextDouble();
+                    System.out.println("Enter participating members: ");
+                    String participating = choose.nextLine();
+                    System.out.println("Enter standings: ");
+                    String standings = choose.nextLine();
+                    tournamentPostRequest(startDate, endDate, fee, prize, participating, standings);
 
                 } else if (userinput1.toUpperCase().equals("E")) {
-                    tournamentPutRequest();
+                    System.out.println("Enter a new Start Date: ");
+                    String startDate = choose.nextLine();
+                    System.out.println("Enter a new End Date: ");
+                    String endDate = choose.nextLine();
+                    System.out.println("Enter a new Fee: ");
+                    double fee = choose.nextDouble();
+                    System.out.println("Enter a new Prize Pool: ");
+                    double prize = choose.nextDouble();
+                    System.out.println("Enter new Participating Members: ");
+                    String participating = choose.nextLine();
+                    System.out.println("Enter new standings: ");
+                    String standings = choose.nextLine();
+                    tournamentPutRequest(startDate, endDate, fee, prize, participating, standings);
 
                 }  else if (userinput1.toUpperCase().equals("D")) {
                     tournamentDeleteRequest();
@@ -87,21 +163,22 @@ public class ClientApplication {
         }
     }
 
-    public static void membershipPostRequest() throws IOException, InterruptedException {
+    public static void membershipPostRequest(String firstName, String lastName, String address, String email, int phone, String duration, String membershipType, 
+    String currentTournaments, String pastTournaments, String upcomingTournaments, String finalStandings, String location, String participationMembers) throws IOException, InterruptedException {
             Map<Object, Object> data = new HashMap<>();
-            data.put("firstName", "Jane");
-            data.put("lastName", "Doe");
-            data.put("address", "111 Street");
-            data.put("email", "test@test.com");
-            data.put("phone", 123456);
-            data.put("duration", "duration test");
-            data.put("membershipType", "GOLD");
-            data.put("currentTournaments", "3");
-            data.put("pastTournaments", "3");
-            data.put("upcomingTournaments", "new");
-            data.put("finalStandings", "36th");
-            data.put("location", "St. John's");
-            data.put("participationMembers", "Double D");
+            data.put("firstName", firstName);
+            data.put("lastName", lastName);
+            data.put("address", address);
+            data.put("email", email);
+            data.put("phone", phone);
+            data.put("duration", duration);
+            data.put("membershipType", membershipType);
+            data.put("currentTournaments", currentTournaments);
+            data.put("pastTournaments", pastTournaments);
+            data.put("upcomingTournaments", upcomingTournaments);
+            data.put("finalStandings", finalStandings);
+            data.put("location", location);
+            data.put("participationMembers", participationMembers);
 
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -119,14 +196,14 @@ public class ClientApplication {
             System.out.println("Added: " + responseBody);
         }
 
-        public static void tournamentPostRequest() throws IOException, InterruptedException {
+        public static void tournamentPostRequest(String startDate, String endDate, double fee, double prize, String participating, String standings) throws IOException, InterruptedException {
             Map<Object, Object> data = new HashMap<>();
-            data.put("startDate", "Feb");
-            data.put("endDate", "March");
-            data.put("fee", 25);
-            data.put("prize", 60);
-            data.put("participating", "123");
-            data.put("standings", "111");
+            data.put("startDate", startDate);
+            data.put("endDate", endDate);
+            data.put("fee", fee);
+            data.put("prize", prize);
+            data.put("participating", participating);
+            data.put("standings", standings);
 
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -144,7 +221,8 @@ public class ClientApplication {
             System.out.println("Added: " + responseBody);
         }
 
-    public static void membershipPutRequest() throws IOException, InterruptedException{
+    public static void membershipPutRequest(String firstName, String lastName, String address, String email, int phone, String duration, String membershipType, 
+    String currentTournaments, String pastTournaments, String upcomingTournaments, String finalStandings, String location, String participationMembers) throws IOException, InterruptedException{
         String id;
         Scanner idInput = new Scanner(System.in);
         System.out.println("Enter the id you want to edit: ");
@@ -152,19 +230,19 @@ public class ClientApplication {
         idInput.close();
 
         Map<Object, Object> data = new HashMap<>();
-        data.put("firstName", "Jane");
-        data.put("lastName", "Doe");
-        data.put("address", "111 Street");
-        data.put("email", "test@test.com");
-        data.put("phone", 123456);
-        data.put("duration", "duration test");
-        data.put("membershipType", "GOLD");
-        data.put("currentTournaments", "3");
-        data.put("pastTournaments", "3");
-        data.put("upcomingTournaments", "new");
-        data.put("finalStandings", "36th");
-        data.put("location", "St. John's");
-        data.put("participationMembers", "Double D");
+        data.put("firstName", firstName);
+        data.put("lastName", lastName);
+        data.put("address", address);
+        data.put("email", email);
+        data.put("phone", phone);
+        data.put("duration", duration);
+        data.put("membershipType", membershipType);
+        data.put("currentTournaments", currentTournaments);
+        data.put("pastTournaments", pastTournaments);
+        data.put("upcomingTournaments", upcomingTournaments);
+        data.put("finalStandings", finalStandings);
+        data.put("location", location);
+        data.put("participationMembers", participationMembers);
 
         ObjectMapper dataMapper = new ObjectMapper();
         String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -181,7 +259,7 @@ public class ClientApplication {
         System.out.println("Updated : " + responseBody);
     }
 
-    public static void tournamentPutRequest() throws IOException, InterruptedException{
+    public static void tournamentPutRequest(String startDate, String endDate, double fee, double prize, String participating, String standings) throws IOException, InterruptedException{
         String id;
         Scanner idInput = new Scanner(System.in);
         System.out.println("Enter the id you want to edit: ");
@@ -189,12 +267,12 @@ public class ClientApplication {
         idInput.close();
 
         Map<Object, Object> data = new HashMap<>();
-        data.put("startDate", "Jan");
-        data.put("endDate", "Dec");
-        data.put("fee", 12);
-        data.put("prize", 35);
-        data.put("participating", "123456");
-        data.put("standings", "standing test");
+        data.put("startDate", startDate);
+        data.put("endDate", endDate);
+        data.put("fee", fee);
+        data.put("prize", prize);
+        data.put("participating", participating);
+        data.put("standings", standings);
 
         ObjectMapper dataMapper = new ObjectMapper();
         String stringifydataMapper = dataMapper.writeValueAsString(data);
