@@ -33,22 +33,7 @@ public class ClientApplication {
                                 String email = choose.nextLine();
                                 System.out.println("Enter a phone: ");
                                 int phone = choose.nextInt();
-                                System.out.println("Enter a Membership ID: ");
-                                int membership_id = choose.nextInt();
-                                System.out.println("Current Tournament's: ");
-                                currenttournamentGetRequest();
-                                System.out.println("Enter a Current Tournament ID: ");
-                                int current_tournaments_id = choose.nextInt();
-                                System.out.println("Past Tournament's: ");
-                                pasttournamentGetRequest();
-                                System.out.println("Enter a Past Tournament ID: ");
-                                int past_tournaments_id = choose.nextInt();
-                                System.out.println("Upcoming Tournament's: ");
-                                upcomingtournamentGetRequest();
-                                System.out.println("Enter a Upcoming Tournament ID: ");
-                                int upcoming_tournaments_id = choose.nextInt();
-                                membersPostRequest(firstName, lastName, address, email, phone, membership_id, 
-                                current_tournaments_id, past_tournaments_id, upcoming_tournaments_id);
+                                membersPostRequest(firstName, lastName, address, email, phone);
 
                             } else if (userinput1.toUpperCase().equals("E")) {
                                 System.out.println("Enter a first name: ");
@@ -61,22 +46,7 @@ public class ClientApplication {
                                 String email = choose.nextLine();
                                 System.out.println("Enter a phone: ");
                                 int phone = choose.nextInt();
-                                System.out.println("Enter a Membership ID: ");
-                                int membership_id = choose.nextInt();
-                                System.out.println("Current Tournament's: ");
-                                currenttournamentGetRequest();
-                                System.out.println("Enter a Current Tournament ID: ");
-                                int current_tournaments_id = choose.nextInt();
-                                System.out.println("Past Tournament's: ");
-                                pasttournamentGetRequest();
-                                System.out.println("Enter a Past Tournament ID: ");
-                                int past_tournaments_id = choose.nextInt();
-                                System.out.println("Upcoming Tournament's: ");
-                                upcomingtournamentGetRequest();
-                                System.out.println("Enter a Upcoming Tournament ID: ");
-                                int upcoming_tournaments_id = choose.nextInt();
-                                membersPutRequest(firstName, lastName, address, email, phone, membership_id, 
-                                current_tournaments_id, past_tournaments_id, upcoming_tournaments_id);
+                                membersPutRequest(firstName, lastName, address, email, phone);
 
                             }  else if (userinput1.toUpperCase().equals("D")) {
                                 membershipDeleteRequest();
@@ -131,26 +101,14 @@ public class ClientApplication {
                     String startDate = choose.nextLine();
                     System.out.println("Enter a duration (hh-mm-ss): ");
                     String duration = choose.nextLine();
-                    membershiptypeGetRequest();
-                    System.out.println("Enter a membership type ID: ");
-                    int membership_type_id = choose.nextInt();
-                    membersGetRequest();
-                    System.out.println("Enter a Member's ID: ");
-                    int members_id = choose.nextInt();
-                    membershipPostRequest(startDate, duration, membership_type_id, members_id);
+                    membershipPostRequest(startDate, duration);
                 
                 } else if (userinput1.toUpperCase().equals("E")) {
                     System.out.println("Enter a start date (dd/mm/yyyy): ");
                     String startDate = choose.nextLine();
                     System.out.println("Enter a duration (hh-mm-ss): ");
                     String duration = choose.nextLine();
-                    membershiptypeGetRequest();
-                    System.out.println("Enter a membership type ID: ");
-                    int membership_type_id = choose.nextInt();
-                    membersGetRequest();
-                    System.out.println("Enter a Member's ID: ");
-                    int members_id = choose.nextInt();
-                    membershipPostRequest(startDate, duration, membership_type_id, members_id);
+                    membershipPostRequest(startDate, duration);
                 
                 }  else if (userinput1.toUpperCase().equals("D")) {
                     membershipDeleteRequest();
@@ -164,20 +122,14 @@ public class ClientApplication {
                     String plan = choose.nextLine();
                     System.out.println("Enter a type: ");
                     String type = choose.nextLine();
-                    membersGetRequest();
-                    System.out.println("Enter a Member's ID: ");
-                    int members_id = choose.nextInt();
-                    membershiptypePostRequest(plan, type, members_id);
+                    membershiptypePostRequest(plan, type);
                 
                 } else if (userinput1.toUpperCase().equals("E")) {
                     System.out.println("Enter a plan: ");
                     String plan = choose.nextLine();
                     System.out.println("Enter a type: ");
                     String type = choose.nextLine();
-                    membersGetRequest();
-                    System.out.println("Enter a Member's ID: ");
-                    int members_id = choose.nextInt();
-                    membershiptypePutRequest(plan, type, members_id);
+                    membershiptypePutRequest(plan, type);
                 
                 }  else if (userinput1.toUpperCase().equals("D")) {
                     membershipDeleteRequest();
@@ -189,18 +141,12 @@ public class ClientApplication {
                 if (userinput1.toUpperCase().equals("A")) {
                     System.out.println("Enter a date (dd/mm/yyyy): ");
                     String date = choose.nextLine();
-                    tournamentGetRequest();
-                    System.out.println("Enter a tournament ID: ");
-                    int tournament_id = choose.nextInt();
-                    pasttournamentPutRequest(date, tournament_id);
+                    pasttournamentPutRequest(date);
                 
                 } else if (userinput1.toUpperCase().equals("E")) {
                     System.out.println("Enter a date (dd/mm/yyyy): ");
                     String date = choose.nextLine();
-                    tournamentGetRequest();
-                    System.out.println("Enter a tournament ID: ");
-                    int tournament_id = choose.nextInt();
-                    pasttournamentPutRequest(date, tournament_id);
+                    pasttournamentPutRequest(date);
                 
                 }  else if (userinput1.toUpperCase().equals("D")) {
                     membershipDeleteRequest();
@@ -212,18 +158,12 @@ public class ClientApplication {
                 if (userinput1.toUpperCase().equals("A")) {
                     System.out.println("Enter a date (dd/mm/yyyy): ");
                     String date = choose.nextLine();
-                    tournamentGetRequest();
-                    System.out.println("Enter a tournament ID: ");
-                    int tournament_id = choose.nextInt();
-                    currenttournamentPostRequest(date, tournament_id);
+                    currenttournamentPostRequest(date);
                 
                 } else if (userinput1.toUpperCase().equals("E")) {
                     System.out.println("Enter a date (dd/mm/yyyy): ");
                     String date = choose.nextLine();
-                    tournamentGetRequest();
-                    System.out.println("Enter a tournament ID: ");
-                    int tournament_id = choose.nextInt();
-                    currenttournamentPostRequest(date, tournament_id);
+                    currenttournamentPostRequest(date);
                 
                 }  else if (userinput1.toUpperCase().equals("D")) {
                     membershipDeleteRequest();
@@ -235,18 +175,12 @@ public class ClientApplication {
                 if (userinput1.toUpperCase().equals("A")) {
                     System.out.println("Enter a date (dd/mm/yyyy): ");
                     String date = choose.nextLine();
-                    tournamentGetRequest();
-                    System.out.println("Enter a tournament ID: ");
-                    int tournament_id = choose.nextInt();
-                    upcomingtournamentPostRequest(date, tournament_id);
+                    upcomingtournamentPostRequest(date);
                 
                 } else if (userinput1.toUpperCase().equals("E")) {
                     System.out.println("Enter a date (dd/mm/yyyy): ");
                     String date = choose.nextLine();
-                    tournamentGetRequest();
-                    System.out.println("Enter a tournament ID: ");
-                    int tournament_id = choose.nextInt();
-                    upcomingtournamentPostRequest(date, tournament_id);
+                    upcomingtournamentPostRequest(date);
                 
                 }  else if (userinput1.toUpperCase().equals("D")) {
                     membershipDeleteRequest();
@@ -278,18 +212,13 @@ public class ClientApplication {
         }
     }
 
-        public static void membersPostRequest(String firstName, String lastName, String address, String email, int phone, int membership_id, 
-        int current_tournaments_id, int past_tournaments_id, int upcoming_tournaments_id) throws IOException, InterruptedException {
+        public static void membersPostRequest(String firstName, String lastName, String address, String email, int phone) throws IOException, InterruptedException {
             Map<Object, Object> data = new HashMap<>();
             data.put("first_name", firstName);
             data.put("last_name", lastName);
             data.put("address", address);
             data.put("email", email);
             data.put("phone", phone);
-            data.put("membership_id", membership_id);
-            data.put("current_tournaments_id", current_tournaments_id);
-            data.put("past_tournaments_id", past_tournaments_id);
-            data.put("upcoming_tournaments_id", upcoming_tournaments_id);
 
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -307,8 +236,7 @@ public class ClientApplication {
             System.out.println("Added: " + responseBody);
         }
 
-    public static void membersPutRequest(String firstName, String lastName, String address, String email, int phone, int membership_id, 
-    int current_tournaments_id, int past_tournaments_id, int upcoming_tournaments_id) throws IOException, InterruptedException{
+    public static void membersPutRequest(String firstName, String lastName, String address, String email, int phone) throws IOException, InterruptedException{
         String id;
         Scanner idInput = new Scanner(System.in);
         System.out.println("Enter the id you want to edit: ");
@@ -321,11 +249,6 @@ public class ClientApplication {
         data.put("address", address);
         data.put("email", email);
         data.put("phone", phone);
-        data.put("membership_id", membership_id);
-        data.put("current_tournaments_id", current_tournaments_id);
-        data.put("past_tournaments_id", past_tournaments_id);
-        data.put("upcoming_tournaments_id", upcoming_tournaments_id);
-
 
         ObjectMapper dataMapper = new ObjectMapper();
         String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -378,12 +301,10 @@ public class ClientApplication {
         }
     }
 
-    public static void membershipPostRequest(String startDate, String duration, int membership_type_id, int member_id) throws IOException, InterruptedException {
+    public static void membershipPostRequest(String startDate, String duration) throws IOException, InterruptedException {
             Map<Object, Object> data = new HashMap<>();
             data.put("startDate", startDate);
             data.put("duration", duration);
-            data.put("membership_type_id", membership_type_id);
-            data.put("member_id", member_id);
 
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -401,7 +322,7 @@ public class ClientApplication {
             System.out.println("Added: " + responseBody);
         }
 
-        public static void membershipPutRequest(String startDate, String duration, int membership_type_id, int member_id) throws IOException, InterruptedException{
+        public static void membershipPutRequest(String startDate, String duration) throws IOException, InterruptedException{
             String id;
             Scanner idInput = new Scanner(System.in);
             System.out.println("Enter the id you want to edit: ");
@@ -411,8 +332,6 @@ public class ClientApplication {
             Map<Object, Object> data = new HashMap<>();
             data.put("startDate", startDate);
             data.put("duration", duration);
-            data.put("membership_type_id", membership_type_id);
-            data.put("member_id", member_id);
     
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -465,11 +384,10 @@ public class ClientApplication {
         }
     }
 
-    public static void membershiptypePostRequest(String plan, String type, int member_id) throws IOException, InterruptedException {
+    public static void membershiptypePostRequest(String plan, String type) throws IOException, InterruptedException {
             Map<Object, Object> data = new HashMap<>();
             data.put("plan", plan);
             data.put("type", type);
-            data.put("member_id", member_id);
 
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -487,7 +405,7 @@ public class ClientApplication {
             System.out.println("Added: " + responseBody);
         }
 
-        public static void membershiptypePutRequest(String plan, String type, int member_id) throws IOException, InterruptedException{
+        public static void membershiptypePutRequest(String plan, String type) throws IOException, InterruptedException{
             String id;
             Scanner idInput = new Scanner(System.in);
             System.out.println("Enter the id you want to edit: ");
@@ -497,7 +415,6 @@ public class ClientApplication {
             Map<Object, Object> data = new HashMap<>();
             data.put("plan", plan);
             data.put("type", type);
-            data.put("member_id", member_id);
     
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -641,10 +558,9 @@ public class ClientApplication {
         }
     }
 
-    public static void currenttournamentPostRequest(String date, int tournament_id) throws IOException, InterruptedException {
+    public static void currenttournamentPostRequest(String date) throws IOException, InterruptedException {
             Map<Object, Object> data = new HashMap<>();
             data.put("date", date);
-            data.put("tournaments_id", tournament_id);
 
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -662,7 +578,7 @@ public class ClientApplication {
             System.out.println("Added: " + responseBody);
         }
 
-        public static void currenttournamentPutRequest(String date, int tournament_id) throws IOException, InterruptedException{
+        public static void currenttournamentPutRequest(String date) throws IOException, InterruptedException{
             String id;
             Scanner idInput = new Scanner(System.in);
             System.out.println("Enter the id you want to edit: ");
@@ -671,7 +587,6 @@ public class ClientApplication {
     
             Map<Object, Object> data = new HashMap<>();
             data.put("date", date);
-            data.put("tournaments_id", tournament_id);
     
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -724,10 +639,9 @@ public class ClientApplication {
         }
     }
 
-    public static void pasttournamentPostRequest(String date, int tournament_id) throws IOException, InterruptedException {
+    public static void pasttournamentPostRequest(String date) throws IOException, InterruptedException {
             Map<Object, Object> data = new HashMap<>();
             data.put("date", date);
-            data.put("tournaments_id", tournament_id);
 
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -745,7 +659,7 @@ public class ClientApplication {
             System.out.println("Added: " + responseBody);
         }
 
-        public static void pasttournamentPutRequest(String date, int tournament_id) throws IOException, InterruptedException{
+        public static void pasttournamentPutRequest(String date) throws IOException, InterruptedException{
             String id;
             Scanner idInput = new Scanner(System.in);
             System.out.println("Enter the id you want to edit: ");
@@ -754,7 +668,6 @@ public class ClientApplication {
     
             Map<Object, Object> data = new HashMap<>();
             data.put("date", date);
-            data.put("tournaments_id", tournament_id);
     
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -807,10 +720,9 @@ public class ClientApplication {
         }
     }
 
-    public static void upcomingtournamentPostRequest(String date, int tournament_id) throws IOException, InterruptedException {
+    public static void upcomingtournamentPostRequest(String date) throws IOException, InterruptedException {
             Map<Object, Object> data = new HashMap<>();
             data.put("date", date);
-            data.put("tournaments_id", tournament_id);
 
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
@@ -828,7 +740,7 @@ public class ClientApplication {
             System.out.println("Added: " + responseBody);
         }
 
-        public static void upcomingtournamentPutRequest(String date, int tournament_id) throws IOException, InterruptedException{
+        public static void upcomingtournamentPutRequest(String date) throws IOException, InterruptedException{
             String id;
             Scanner idInput = new Scanner(System.in);
             System.out.println("Enter the id you want to edit: ");
@@ -837,7 +749,6 @@ public class ClientApplication {
     
             Map<Object, Object> data = new HashMap<>();
             data.put("date", date);
-            data.put("tournaments_id", tournament_id);
     
             ObjectMapper dataMapper = new ObjectMapper();
             String stringifydataMapper = dataMapper.writeValueAsString(data);
